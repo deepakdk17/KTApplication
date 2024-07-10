@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+  h1 Edit Category
+  form(action='/categories/' + category.id, method='POST')
+    input(type='hidden', name='_method', value='PUT')
+    .form-group
+      label(for='name') Name
+      input.form-control(type='text', name='name', id='name', required, value=category.name)
+    button.btn.btn-primary(type='submit') Update Category

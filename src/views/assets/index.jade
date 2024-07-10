@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+  h1 Assets
+  a.btn.btn-primary(href='/assets/create') Add Asset
+  table.table.table-striped
+    thead
+      tr
+        th ID
+        th Serial Number
+        th Make
+        th Model
+        th Category
+        th Status
+        th Actions
+    tbody
+      each asset in assets
+        tr
+          td= asset.id
+          td= asset.serialNumber
+          td= asset.make
+          td= asset.model
+          td= asset.Category.name
+          td= asset.status
+          td
+            a.btn.btn-warning.btn-sm(href='/assets/' + asset.id + '/edit') Edit
+            a.btn.btn-danger.btn-sm(href='/assets/' + asset.id + '/delete') Delete

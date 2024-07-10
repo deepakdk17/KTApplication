@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+  h1 Categories
+  a.btn.btn-primary(href='/categories/create') Add Category
+  table.table.table-striped
+    thead
+      tr
+        th ID
+        th Name
+        th Actions
+    tbody
+      each category in categories
+        tr
+          td= category.id
+          td= category.name
+          td
+            a.btn.btn-warning.btn-sm(href='/categories/' + category.id + '/edit') Edit
+            a.btn.btn-danger.btn-sm(href='/categories/' + category.id + '/delete') Delete

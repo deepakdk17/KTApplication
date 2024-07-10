@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+  h1 Edit Employee
+  form(action='/employees/' + employee.id, method='POST')
+    input(type='hidden', name='_method', value='PUT')
+    .form-group
+      label(for='firstName') First Name
+      input.form-control(type='text', name='firstName', id='firstName', required, value=employee.firstName)
+    .form-group
+      label(for='lastName') Last Name
+      input.form-control(type='text', name='lastName', id='lastName', required, value=employee.lastName)
+    .form-group
+      label(for='email') Email
+      input.form-control(type='email', name='email', id='email', required, value=employee.email)
+    .form-group
+      label(for='status') Status
+      select.form-control(name='status', id='status')
+        option(value='active', selected=employee.status === 'active') Active
+        option(value='inactive', selected=employee.status === 'inactive') Inactive
+    button.btn.btn-primary(type='submit') Update Employee

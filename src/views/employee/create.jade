@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+  h1 Add Employee
+  form(action='/employees', method='POST')
+    .form-group
+      label(for='firstName') First Name
+      input.form-control(type='text', name='firstName', id='firstName', required)
+    .form-group
+      label(for='lastName') Last Name
+      input.form-control(type='text', name='lastName', id='lastName', required)
+    .form-group
+      label(for='email') Email
+      input.form-control(type='email', name='email', id='email', required)
+    .form-group
+      label(for='status') Status
+      select.form-control(name='status', id='status')
+        option(value='active') Active
+        option(value='inactive') Inactive
+    button.btn.btn-primary(type='submit') Add Employee
